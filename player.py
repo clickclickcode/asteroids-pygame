@@ -7,8 +7,11 @@ from constants import PLAYER_SPEED
 
 class Player(CircleShape):
     def __init__(self, x, y):
-        super().__init__(x, y, PLAYER_RADIUS)
+        super().__init__(x, y, PLAYER_RADIUS) # is it even necessary to add x and y to the super class parameters?
         self.rotation = 0
+
+    def draw(self, screen):
+        pygame.draw.polygon(screen, (255, 255, 255), self.triangle(), 2)
 
     # in the player class
     def triangle(self):
